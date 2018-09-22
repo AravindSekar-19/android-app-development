@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "558553406569",
+    "firebase_url": "https://fir-project-26c65.firebaseio.com",
+    "project_id": "fir-project-26c65",
+    "storage_bucket": "fir-project-26c65.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:558553406569:android:38a19c18d59b1b1e",
+        "android_client_info": {
+          "package_name": "com.example.sechaar.onlinedb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "558553406569-fdeod5r39th5nu7k75b8bg36r09d9rcj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sechaar.onlinedb",
+            "certificate_hash": "92586b205cf4b7cc9afd0dddf09bfd71cd9c0f1e"
+          }
+        },
+        {
+          "client_id": "558553406569-h144c609hjbvoig2ia5ela3c8sbfkkgs.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "558553406569-h144c609hjbvoig2ia5ela3c8sbfkkgs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfHUndpQRomAksKjTOyiYGxRwADj5I4H4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "558553406569-h144c609hjbvoig2ia5ela3c8sbfkkgs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

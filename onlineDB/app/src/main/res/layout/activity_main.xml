@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+   <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_marginTop="50dp"
+        android:onClick="pickAImage"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/profile_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/profile"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#3696EB"/>
+    <TextView
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/background_dark"
+        android:id="@+id/user"
+        android:layout_marginLeft="35dp"
+        android:layout_below="@+id/profile_image"
+        android:text="User Name"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:background="@drawable/border_style"
+        android:textColor="#3696EB"
+        android:layout_centerInParent="true"
+        android:hint=" eg: Aravind sekar"
+        android:layout_below="@+id/user"
+        android:id="@+id/user_name"
+        android:layout_width="300dp"
+        android:layout_height="50dp" />
+    <TextView
+        android:id="@+id/pass"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="35dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/background_dark"
+        android:layout_below="@+id/user_name"
+        android:text="Password"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:background="@drawable/border_style"
+        android:textColor="#3696EB"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/pass"
+        android:hint=" ********"
+        android:id="@+id/password"
+        android:layout_width="300dp"
+        android:layout_height="50dp" />
+    <TextView
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
+        android:layout_centerInParent="true"
+        android:id="@+id/forgot_password"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/password"
+        android:text="Forgot password ?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <android.support.v7.widget.CardView
+            android:id="@+id/card_Login_View"
+            app:cardBackgroundColor="#3696EB"
+            android:layout_marginTop="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/forgot_password"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            app:cardElevation="10dp"
+            app:cardCornerRadius="25dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/Login_Click"
+                    android:textColor="@android:color/white"
+                    android:text="Login"
+                    android:textSize="26sp"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>
