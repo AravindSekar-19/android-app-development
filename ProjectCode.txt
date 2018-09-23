@@ -1,0 +1,100 @@
+#include <TinyGPS++.h>
+#include <SoftwareSerial.h>
+#include <GPRS_Shield_Arduino.h>
+#include <sim900.h>
+const int EP =12;
+SoftwareSerial mySerial(9, 10);
+char call;
+SoftwareSerial serial_connection(4, 3); //RX=pin 4, TX=pin 3
+TinyGPSPlus gps;//This is the GPS object that will pretty much do all the grunt work with the NMEA data
+
+
+void setup() 
+{
+ mySerial.begin(9600);
+ serial_connection.begin(9600);//This opens up communications to the GPS
+ Serial.begin(115200);
+
+ pinMode(mySerial, OUTPUT);
+
+ pinMode(EP, INPUT);
+
+}
+
+
+
+void loop() 
+ {
+
+  long measurement =TP_init();
+  delay(50);
+ 
+  Serial.println(measurement);
+  if (measurement < 3000)
+  {
+    while(serial_connection.available())//While there are characters to come from the GPS
+  {
+    gps.encode(serial_connection.read());//This feeds the serial NMEA data into the library one char at a time
+  }
+  if(gps.location.isUpdated())
+    Serial.println(".....");
+  }
+  else
+  {
+    Serial.println("Connecting");
+ 
+    
+  {
+  A();
+  while(1==1);
+  }
+  
+  }
+}
+
+
+void A()
+{
+  if (mySerial.available()>0)
+  gps.encode(serial_connection.read());
+  Serial.write(mySerial.read());
+  
+  {
+  
+  mySerial.println("AT+CMGF=1");    //Sets the GSM Module in Text Mode
+  delay(1000);  // Delay of 1000 milli seconds or 1 second
+  mySerial.println("AT+CMGS=\"+91950XXXX989\"\r"); // Replace x with mobile number
+  delay(1000);
+  //mySerial.println("CRASHED NOW!!!! ");// The SMS text you want to send
+  delay(100);
+    /*mySerial.println("Satellite Count:");
+    mySerial.println(gps.satellites.value());
+    mySerial.println("Latitude:");
+    mySerial.println(gps.location.lat(), 6);
+    mySerial.println("Longitude:");
+    mySerial.println(gps.location.lng(), 6);
+    mySerial.println("Speed MPH:");
+    mySerial.println(gps.speed.mph());
+    mySerial.println("Altitude Feet:");
+    mySerial.println(gps.altitude.feet());*/
+
+    mySerial.print("https://maps.google.com/?q=");
+    mySerial.print(gps.location.lat(),6);
+    mySerial.print(",");
+    mySerial.print(gps.location.lng(),6);
+    mySerial.print("");
+    mySerial.println((char)26);// ASCII code of CTRL+Z
+    delay(1000);
+    
+  }
+    
+ 
+}
+
+
+long TP_init()
+{
+  delay(10);
+  long measurement=pulseIn (EP, HIGH);  //wait for the pin to get HIGH and returns measurement
+  return measurement;
+}
